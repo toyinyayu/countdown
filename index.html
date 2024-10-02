@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60-Second Countdown Timer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>60-Second Countdown Timer</h1>
+
+    
+            <div id="countdown">Countdown not started</div>
+            <button id="countdownBtn">Start Countdown</button>
+        
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    console.log("DOM loaded");
+                    
+                    var countdownDisplay = document.getElementById('countdown');
+                    var myBtnCountdown = document.getElementById('countdownBtn');
+                    
+                    console.log("countdown element:", countdownDisplay);
+                    console.log("button element:", myBtnCountdown);
+        
+                    myBtnCountdown.addEventListener('click', function() {
+                        console.log("Button clicked");
+                        countdownDisplay.textContent = "Button click registered";
+                        
+                        // Simple countdown without using setInterval
+                        var timeLeft = 60;
+                        function updateCountdown() {
+                            console.log("Updating countdown:", timeLeft);
+                            if (timeLeft <= 0) {
+                                countdownDisplay.textContent = "Time's up!";
+                            } else {
+                                countdownDisplay.textContent = timeLeft + " seconds remaining";
+                                timeLeft--;
+                                setTimeout(updateCountdown, 1000);
+                            }
+                        }
+                        updateCountdown();
+                    });
+                });
+            </script>
+        </body>
+        </html>
+        </div>
+
+        
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
